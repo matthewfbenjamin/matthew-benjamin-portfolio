@@ -1,4 +1,4 @@
-import SideNav from './SideNav'
+import SideNav from './SideNav';
 
 export default function Layout({ children }) {
   return (
@@ -6,5 +6,5 @@ export default function Layout({ children }) {
       <SideNav />
       <main>{children}</main>
     </>
-  )
+  );
 }

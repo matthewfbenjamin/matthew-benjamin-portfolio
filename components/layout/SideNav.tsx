@@ -1,15 +1,8 @@
-import * as React from 'react'
-import Link from 'next/link'
-import { VStack } from '@chakra-ui/react'
+import * as React from 'react';
+import { VStack } from '@chakra-ui/react';
 
-const SideNav = ({
-  
-}) => {
- return (
-  <VStack>
+const SideNav = () => {
+  return <VStack></VStack>;
+};
 
-  </VStack>
- )
-}
-
-export default SideNav
+export default SideNav;
