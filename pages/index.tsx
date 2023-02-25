@@ -1,12 +1,14 @@
-import { Box, Heading, Text, VStack } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack, useDisclosure } from '@chakra-ui/react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import { SideNav } from '../components';
 
 const OffsetLetter = styled.span`
   vertical-align: ${(props) => (props.offset ? '4%' : '0%')};
 `;
 
 export default function Home() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Head>
@@ -20,7 +22,7 @@ export default function Home() {
         height="100vh"
         justifyContent="center"
         width="100vw">
-        <VStack spacing={4}>
+        <VStack spacing={4} p="2">
           <Heading
             as="h1"
             fontSize="10vmin"
@@ -33,10 +35,12 @@ export default function Home() {
               </OffsetLetter>
             ))}
           </Heading>
-          <Text as="p" fontSize="xl" textAlign="center">
-            Explore my world with the #1 website for Matthew Benjamin
+          <Text as="p" fontSize="2xl" textAlign="center" fontWeight="bold">
+            Explore my world with the #1 website for Matthew Benjamin!
           </Text>
         </VStack>
+
+        <SideNav isOpen onClose={onClose} />
       </Box>
     </>
   );
