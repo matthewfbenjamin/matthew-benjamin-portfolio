@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack, useDisclosure } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack } from '@chakra-ui/react';
 import styled from 'styled-components';
 import Head from 'next/head';
 import { SideNav } from '../components';
@@ -8,7 +8,7 @@ const OffsetLetter = styled.span`
 `;
 
 export default function Home() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  // const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Head>
@@ -40,7 +40,7 @@ export default function Home() {
           </Text>
         </VStack>
 
-        <SideNav isOpen onClose={onClose} />
+        <SideNav isOpen />
       </Box>
     </>
   );
