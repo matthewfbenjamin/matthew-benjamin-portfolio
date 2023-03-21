@@ -14,8 +14,7 @@ const OffsetLetter = styled.span`
   vertical-align: ${(props) => (props.offset ? '4%' : '0%')};
 `;
 
-// eslint-disable-next-line prettier/prettier
-interface HeaderProps extends Partial<UseDisclosureProps> { }
+type HeaderProps = Pick<UseDisclosureProps, 'onOpen'>
 
 const Header = ({ onOpen }: HeaderProps) => {
   const [isSmallerThan767] = useMediaQuery('(max-width: 767px)');

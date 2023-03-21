@@ -1,9 +1,4 @@
 import Head from 'next/head';
-import styled from 'styled-components';
-
-const OffsetLetter = styled.span`
-  vertical-align: ${(props) => (props.offset ? '4%' : '0%')};
-`;
 
 export default function Home() {
   return (
