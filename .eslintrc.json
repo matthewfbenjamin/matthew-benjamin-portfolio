@@ -6,7 +6,6 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard",
         "next/core-web-vitals",
         "plugin:prettier/recommended"
     ],
@@ -22,6 +21,5 @@
         "react",
         "@typescript-eslint"
     ],
-    "rules": {
-    }
+    "rules": {}
 }

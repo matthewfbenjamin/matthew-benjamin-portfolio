@@ -1,10 +1,6 @@
-// eslint-disable-next-line camelcase
-import { PT_Serif } from '@next/font/google';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { Layout } from '../components';
 import '../styles/globals.css';
-
-const ptSerif = PT_Serif({ subsets: ['latin'], weight: '400' });
 
 const theme = extendTheme({
   colors: {
@@ -22,9 +18,7 @@ export default function App({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Layout>
-        <main className={ptSerif.className}>
-          <Component {...pageProps} />
-        </main>
+        <Component {...pageProps} />
       </Layout>
     </ChakraProvider>
   );

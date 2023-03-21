@@ -1,6 +1,5 @@
-import { Box, Heading, Text, VStack } from '@chakra-ui/react';
-import styled from 'styled-components';
 import Head from 'next/head';
+import styled from 'styled-components';
 
 const OffsetLetter = styled.span`
   vertical-align: ${(props) => (props.offset ? '4%' : '0%')};
@@ -15,29 +14,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box
-        // display="flex"
-        height="100vh"
-        justifyContent="center"
-        width="100vw">
-        <VStack spacing={4} p="2">
-          <Heading
-            as="h1"
-            fontSize="10vmin"
-            textAlign="center"
-            sx={{ '-webkit-text-stroke': '4px #cf6e12;' }}
-            color="primary">
-            {[...'mattquest'].map((letter, index) => (
-              <OffsetLetter key={index} offset={index % 2 === 0}>
-                {letter}
-              </OffsetLetter>
-            ))}
-          </Heading>
-          <Text as="p" fontSize="2xl" textAlign="center" fontWeight="bold">
-            Explore my world with the #1 website for Matthew Benjamin!
-          </Text>
-        </VStack>
-      </Box>
     </>
   );
 }
