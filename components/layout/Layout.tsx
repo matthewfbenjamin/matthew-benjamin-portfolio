@@ -6,13 +6,10 @@ import { PT_Serif } from '@next/font/google';
 import { Header } from './Header';
 import { Navigation } from './Navigation';
 
-interface LayoutProps {
-  children: React.FC;
-}
 
 const ptSerif = PT_Serif({ subsets: ['latin'], weight: '400' });
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children }: React.PropsWithChildren) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -20,7 +17,9 @@ export default function Layout({ children }: LayoutProps) {
       <Navigation isOpen={isOpen} onClose={onClose} />
       <Box w="100%" className={ptSerif.className}>
         <Header onOpen={onOpen} />
-        {children}
+        <>
+          {children}
+        </>
       </Box>
     </Flex>
   );

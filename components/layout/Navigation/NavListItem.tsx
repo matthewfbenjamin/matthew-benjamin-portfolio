@@ -1,5 +1,6 @@
 import { Link, ListItem } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { ListItemType } from './types';
 
 const NavListItem = ({ item }: { item: ListItemType }) => (
   <ListItem key={item.title}>
