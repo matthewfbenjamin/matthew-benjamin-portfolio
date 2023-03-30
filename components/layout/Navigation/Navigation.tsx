@@ -5,6 +5,7 @@ import {
   DrawerContent,
   DrawerOverlay,
   useMediaQuery,
+  useTheme,
 } from '@chakra-ui/react';
 
 import NavSection from './NavSection';
@@ -24,6 +25,7 @@ const BOTTOM_LIST_ITEMS: ListItemType[] = [
 ];
 
 const Nav = () => {
+  const { colors } = useTheme()
   return (
     <Box
       p="4"
@@ -32,7 +34,14 @@ const Nav = () => {
             linear-gradient(to right, rgba(0, 0, 0, 0.16) 1px, transparent 1px),
             linear-gradient(to bottom, rgba(0, 0, 0, 0.16) 1px, transparent 1px);
         `}
-      backgroundSize="48px 48px">
+      backgroundSize="48px 48px"
+      boxShadow="2px 0px 10px rgba(0, 0, 0)"
+      borderRightColor="black"
+      borderRightStyle="solid"
+      borderRightWidth="4px"
+      // outline: 5px solid red;
+      outline={`4px solid ${colors.primary}`}
+    >
       <NavSection title="fast track" listItems={TOP_LIST_ITEMS} />
       <NavSection title="mattquest showcase:" listItems={BOTTOM_LIST_ITEMS} />
     </Box>
