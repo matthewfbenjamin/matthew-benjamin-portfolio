@@ -9,12 +9,17 @@ import {
 } from '@chakra-ui/react';
 import { MdMenu } from 'react-icons/md';
 import styled from 'styled-components';
+// eslint-disable-next-line camelcase
+import { PT_Serif } from '@next/font/google';
 
 const OffsetLetter = styled.span`
-  vertical-align: ${(props) => (props.offset ? '4%' : '0%')};
+  vertical-align: ${(props) => props.offset};
 `;
 
 type HeaderProps = Pick<UseDisclosureProps, 'onOpen'>
+
+const ptSerif = PT_Serif({ subsets: ['latin'], weight: '400' });
+
 
 const Header = ({ onOpen }: HeaderProps) => {
   const [isSmallerThan767] = useMediaQuery('(max-width: 767px)');
@@ -40,12 +45,12 @@ const Header = ({ onOpen }: HeaderProps) => {
           sx={{ '-webkit-text-stroke': '4px #cf6e12;' }}
           color="primary">
           {[...'mattquest'].map((letter, index) => (
-            <OffsetLetter key={index} offset={index % 2 === 0}>
+            <OffsetLetter key={index} offset={index % 2 === 0 ? "8%" : "0%"}>
               {letter}
             </OffsetLetter>
           ))}
         </Heading>
-        <Text as="p" fontSize="2xl" textAlign="center" fontWeight="bold">
+        <Text as="p" fontSize="2xl" textAlign="center" fontWeight="bold" className={ptSerif.className}>
           Explore my world with the #1 website for Matthew Benjamin!
         </Text>
       </VStack>

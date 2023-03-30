@@ -10,7 +10,7 @@ const theme = extendTheme({
     tertiary: '#ffcc33',
   },
   fonts: {
-    body: 'pt_serif, system-ui, sans-serif',
+    body: 'sans-serif, system-ui, pt_serif',
     heading: 'motel, sans-serif',
   },
 });

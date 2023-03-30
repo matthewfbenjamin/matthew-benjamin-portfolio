@@ -12,7 +12,7 @@ import { ListItemType, NavProps } from './types';
 
 const TOP_LIST_ITEMS: ListItemType[] = [
   { title: 'home', destination: '/' },
-  { title: 'about', destination: '/' },
+  // { title: 'about', destination: '/' },
   { title: 'resume', destination: '/' },
   { title: 'portfolio', destination: '/' },
   { title: 'contact', destination: '/' },
@@ -42,7 +42,6 @@ const Nav = () => {
 const Navigation = ({ isOpen, onClose }: NavProps) => {
   const [isLargerThan768] = useMediaQuery('(min-width: 768px)');
 
-  console.log('isLargerThan768', isLargerThan768);
   if (isLargerThan768) return <Nav />;
 
   return (
