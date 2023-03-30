@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   Drawer,
   DrawerCloseButton,
   DrawerContent,
@@ -24,23 +25,11 @@ const BOTTOM_LIST_ITEMS: ListItemType[] = [
   { title: 'find my food', destination: '/' },
 ];
 
-const Nav = () => {
-  const { colors } = useTheme()
+const Nav = (props: BoxProps) => {
   return (
     <Box
       p="4"
-      backgroundColor="tertiary"
-      backgroundImage={`
-            linear-gradient(to right, rgba(0, 0, 0, 0.16) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0, 0, 0, 0.16) 1px, transparent 1px);
-        `}
-      backgroundSize="48px 48px"
-      boxShadow="2px 0px 10px rgba(0, 0, 0)"
-      borderRightColor="black"
-      borderRightStyle="solid"
-      borderRightWidth="4px"
-      // outline: 5px solid red;
-      outline={`4px solid ${colors.primary}`}
+      {...props}
     >
       <NavSection title="fast track" listItems={TOP_LIST_ITEMS} />
       <NavSection title="mattquest showcase:" listItems={BOTTOM_LIST_ITEMS} />
@@ -50,19 +39,30 @@ const Nav = () => {
 
 const Navigation = ({ isOpen, onClose }: NavProps) => {
   const [isLargerThan768] = useMediaQuery('(min-width: 768px)');
+  const { colors } = useTheme()
 
-  if (isLargerThan768) return <Nav />;
+  const navOutlineProps: BoxProps = {
+    borderRightColor: "black",
+    borderRightStyle: "solid",
+    borderRightWidth: "4px",
+    outline: `4px solid ${colors.primary}`,
+    boxShadow: "2px 0px 10px rgba(0, 0, 0)",
+    backgroundColor: "tertiary",
+    backgroundImage: `
+        linear-gradient(to right, rgba(0, 0, 0, 0.16) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.16) 1px, transparent 1px);
+    `,
+    backgroundSize: "48px 48px",
+  }
+
+  if (isLargerThan768) return <Nav {...navOutlineProps} />
 
   return (
     <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay />
       <DrawerContent
-        backgroundColor="tertiary"
-        backgroundImage={`
-            linear-gradient(to right, rgba(0, 0, 0, 0.16) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0, 0, 0, 0.16) 1px, transparent 1px);
-        `}
-        backgroundSize="48px 48px">
+        {...navOutlineProps}
+      >
         <DrawerCloseButton />
         <Nav />
       </DrawerContent>
