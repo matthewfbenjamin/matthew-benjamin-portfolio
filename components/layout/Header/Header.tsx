@@ -16,12 +16,14 @@ const OffsetLetter = styled.span`
   vertical-align: ${(props) => props.offset};
 `;
 
-type HeaderProps = Pick<UseDisclosureProps, 'onOpen'>
+interface HeaderProps extends Pick<UseDisclosureProps, 'onOpen'> {
+  subText: string;
+}
 
 const ptSerif = PT_Serif({ subsets: ['latin'], weight: '400' });
 
 
-const Header = ({ onOpen }: HeaderProps) => {
+const Header = ({ onOpen, subText }: HeaderProps) => {
   const [isSmallerThan767] = useMediaQuery('(max-width: 767px)');
   return (
     <Box justifyContent="center" width="100%">
@@ -51,7 +53,7 @@ const Header = ({ onOpen }: HeaderProps) => {
           ))}
         </Heading>
         <Text as="p" fontSize="2xl" textAlign="center" fontWeight="bold" className={ptSerif.className}>
-          Explore my world with the #1 website for Matthew Benjamin!
+          {subText}
         </Text>
       </VStack>
     </Box>

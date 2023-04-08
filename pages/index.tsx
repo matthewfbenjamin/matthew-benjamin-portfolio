@@ -1,8 +1,10 @@
 import { Box } from '@chakra-ui/react';
 import Head from 'next/head';
 import { SectionApplet } from '../components/SectionApplet';
+import { Header } from '../components/layout/Header';
+import { AppComponentProps } from './_app';
 
-export default function Home() {
+export default function Home({ navOnOpen }: AppComponentProps) {
   return (
     <>
       <Head>
@@ -11,6 +13,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header onOpen={navOnOpen} subText='Explore my world with the #1 website for Matthew Benjamin!' />
       <Box p="10">
         <SectionApplet
           imageUrl='http://www.thebeckoning.com/explorations/world/world%20maps/personal_travel_world_map.jpg'

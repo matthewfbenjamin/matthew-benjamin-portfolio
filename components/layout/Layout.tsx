@@ -1,19 +1,13 @@
-import { Box, Flex, useDisclosure } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 
-import { Header } from './Header';
 import { Navigation } from './Navigation';
 
-export default function Layout({ children }: React.PropsWithChildren) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
+export default function Layout({ navIsOpen, navOnClose, children }: React.PropsWithChildren<{ navIsOpen: boolean, navOnClose: () => void }>) {
   return (
     <Flex as="main" h="100vh" w="100vw">
-      <Navigation isOpen={isOpen} onClose={onClose} />
+      <Navigation isOpen={navIsOpen} onClose={navOnClose} />
       <Box w="100%">
-        <Header onOpen={onOpen} />
-        <>
-          {children}
-        </>
+        {children}
       </Box>
     </Flex>
   );

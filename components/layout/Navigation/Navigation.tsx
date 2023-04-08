@@ -15,7 +15,7 @@ import { ListItemType, NavProps } from './types';
 const TOP_LIST_ITEMS: ListItemType[] = [
   { title: 'home', destination: '/' },
   // { title: 'about', destination: '/' },
-  { title: 'resume', destination: '/' },
+  { title: 'resume', destination: '/resume' },
   { title: 'portfolio', destination: '/' },
   { title: 'contact', destination: '/' },
 ];
