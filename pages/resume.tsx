@@ -1,8 +1,8 @@
-import { Grid, GridItem, Icon, Link, ResponsiveValue, Table, TableContainer, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import { Flex, Grid, GridItem, Icon, Link, ResponsiveValue, Text } from "@chakra-ui/react";
 import NextLink from 'next/link';
 import { MdDownload } from 'react-icons/md';
 
-import { Header } from "../components";
+import { DirectionIcon, Header, StartIcon } from "../components";
 import { AppComponentProps } from "./_app";
 
 const NUMBER_OF_COLUMNS = 6
@@ -12,6 +12,29 @@ const SHARED_COL_SPAN: ResponsiveValue<number | "auto"> = [NUMBER_OF_COLUMNS, nu
 const TextGridItem = ({ title, value }: { title: string; value: string | JSX.Element }) => (
   <Text><b>{title}:</b> {value}</Text>
 )
+
+const directions: { Icon: JSX.Element, title: string, dates: string }[] = [
+  {
+    Icon: StartIcon,
+    title: 'Engineer Manager at Rakuten Rewards',
+    dates: 'June 2022 - Present'
+  },
+  {
+    Icon: () => <DirectionIcon direction="bearLeft" />,
+    title: 'Staff Software Engineer at Rakuten Rewards',
+    dates: 'March 2021 - June 2022'
+  },
+  {
+    Icon: () => <DirectionIcon direction="right" />,
+    title: 'Senior Software Engineer at Rakuten Rewards',
+    dates: 'September 2019 – March 2021'
+  },
+  {
+    Icon: () => <DirectionIcon direction="bearRight" />,
+    title: 'Software Engineer II at Rakuten Rewards',
+    dates: 'February 2019 – August 2019'
+  },
+]
 
 export default function Resume({ navOnOpen }: AppComponentProps) {
   return (
@@ -40,63 +63,62 @@ export default function Resume({ navOnOpen }: AppComponentProps) {
             </Link>
           )} />
         </GridItem>
-        <GridItem colSpan={SHARED_COL_SPAN}>
-          <TextGridItem title="Phone" value="(516) 232-6709" />
+        <GridItem colSpan={NUMBER_OF_COLUMNS}>
+          {directions.map((direction, index) => (
+              <Flex
+                key={direction.title}
+                direction={{ base: 'column', md: 'row' }}
+                gap="2"
+                borderTopStyle="dotted"
+                borderTopWidth={1}
+                borderTopColor="gray"
+                borderBottomStyle="dotted"
+                borderBottomWidth={1}
+                borderBottomColor="gray"
+                py="3"
+                justify={{ base: 'space-evenly', md: 'space-between' }}
+                align={{ base: 'flex-start', md: 'center' }}
+              >
+                <Flex flex="1">
+                  <direction.Icon />
+                </Flex>
+                <Flex flex="3">
+                <Text><Text as="span" fontWeight="bold">{index + 1}.</Text> {direction.title}</Text>
+                </Flex>
+                <Flex flex="1">
+                  <Text>{direction.dates}</Text>
+                </Flex>
+              </Flex>
+          ))}
         </GridItem>
       </Grid>
-      <TableContainer>
-        <Table variant="simple">
-          <Thead>
-            <Tr>
-              <Th>
-                Directions
-              </Th>
-              <Th>
-                Distance
-              </Th>
-            </Tr>
-          </Thead>
-        </Table>
-      </TableContainer>
     </>
   )
 }
 
 /*
 <TableContainer>
-  <Table variant='simple'>
-    <TableCaption>Imperial to metric conversion factors</TableCaption>
-    <Thead>
-      <Tr>
-        <Th>To convert</Th>
-        <Th>into</Th>
-        <Th isNumeric>multiply by</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
-      <Tr>
-        <Td>inches</Td>
-        <Td>millimetres (mm)</Td>
-        <Td isNumeric>25.4</Td>
-      </Tr>
-      <Tr>
-        <Td>feet</Td>
-        <Td>centimetres (cm)</Td>
-        <Td isNumeric>30.48</Td>
-      </Tr>
-      <Tr>
-        <Td>yards</Td>
-        <Td>metres (m)</Td>
-        <Td isNumeric>0.91444</Td>
-      </Tr>
-    </Tbody>
-    <Tfoot>
-      <Tr>
-        <Th>To convert</Th>
-        <Th>into</Th>
-        <Th isNumeric>multiply by</Th>
-      </Tr>
-    </Tfoot>
-  </Table>
-</TableContainer>
+        <Table variant="simple">
+          <Thead>
+            <Tr>
+              <Th>
+                Directions
+              </Th>
+              <Th />
+              <Th>
+                Distance
+              </Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            <Tr>
+              <Td><StartIcon /></Td>
+              <Td>Engineer Manager at Rakuten Rewards</Td>
+              <Td>June 2022 - Present</Td>
+            </Tr>
+
+            <Tr><DirectionIcon direction="bearLeft" /></Tr>
+          </Tbody>
+        </Table>
+      </TableContainer>
 */

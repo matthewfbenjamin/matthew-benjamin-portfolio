@@ -4,7 +4,7 @@ import NavListItem from './NavListItem';
 import { ListItemType } from './types';
 
 const NavSection = ({ title, listItems }: { title: string; listItems: ListItemType[] }) => (
-  <>
+  (listItems.length > 0 ? (<>
     <Box>
       <NavHeader title={title} />
     </Box>
@@ -13,7 +13,7 @@ const NavSection = ({ title, listItems }: { title: string; listItems: ListItemTy
         <NavListItem key={item.title} item={item} />
       ))}
     </UnorderedList>
-  </>
+  </>) : null )
 );
 
 export default NavSection;

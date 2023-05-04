@@ -31,6 +31,8 @@ const SectionApplet = ({ imageUrl, sectionTitle, sectionLinks = [] }: SectionApp
           px="3"
           py="2"
           fontFamily="sans-serif"
+          href="https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/61ddbb10b10b2958cfb75afa_k6keaSHL8_BcvdOGQBcYvpJjo67edGz4fbGwoLvP3X7e4wj-n1lXQffjq_oKH7ijOLXjEvmIgTl4DSwWbV6ZVoyMXs1wPBo8Gg-PkyHXDvNwpir8kQASNfAiOOtadwzwSruAtGWm.png"
+          target="_blank"
         >
           Let&apos;s Go!
         </Link>

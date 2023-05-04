@@ -16,13 +16,13 @@ const TOP_LIST_ITEMS: ListItemType[] = [
   { title: 'home', destination: '/' },
   // { title: 'about', destination: '/' },
   { title: 'resume', destination: '/resume' },
-  { title: 'portfolio', destination: '/' },
-  { title: 'contact', destination: '/' },
+  // { title: 'portfolio', destination: '/' },
+  // { title: 'contact', destination: '/' },
 ];
 
 const BOTTOM_LIST_ITEMS: ListItemType[] = [
-  { title: 'spotify buttons', destination: '/' },
-  { title: 'find my food', destination: '/' },
+  // { title: 'spotify buttons', destination: '/' },
+  // { title: 'find my food', destination: '/' },
 ];
 
 const Nav = (props: BoxProps) => {
