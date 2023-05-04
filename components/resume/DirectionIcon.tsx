@@ -1,11 +1,11 @@
 import { Box, Flex } from '@chakra-ui/react'
+import { ReactElement } from 'react'
 import { IconType } from 'react-icons'
 import { TbArrowBearLeft, TbArrowBearRight, TbArrowNarrowLeft, TbArrowNarrowRight, TbArrowNarrowUp } from 'react-icons/tb'
 
 type DirectionProp = 'bearLeft' | 'bearRight' | 'left' | 'right' | 'up'
 
-const getArrow = (direction: DirectionProp): IconType => {
-  console.log('direction', direction)
+const getArrow = (direction: DirectionProp): ReactElement<IconType> => {
   switch (direction) {
     case 'up':
       return <TbArrowNarrowUp size="100%" />

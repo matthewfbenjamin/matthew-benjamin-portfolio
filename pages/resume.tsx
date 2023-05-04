@@ -13,7 +13,7 @@ const TextGridItem = ({ title, value }: { title: string; value: string | JSX.Ele
   <Text><b>{title}:</b> {value}</Text>
 )
 
-const directions: { Icon: JSX.Element, title: string, dates: string }[] = [
+const directions: { Icon: () => JSX.Element, title: string, dates: string }[] = [
   {
     Icon: StartIcon,
     title: 'Engineer Manager at Rakuten Rewards',
