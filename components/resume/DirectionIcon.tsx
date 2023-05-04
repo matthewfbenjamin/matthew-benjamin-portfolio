@@ -1,4 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react'
+import { IconType } from 'react-icons'
 import { TbArrowBearLeft, TbArrowBearRight, TbArrowNarrowLeft, TbArrowNarrowRight, TbArrowNarrowUp } from 'react-icons/tb'
 
 type DirectionProp = 'bearLeft' | 'bearRight' | 'left' | 'right' | 'up'
