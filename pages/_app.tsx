@@ -1,6 +1,7 @@
-import { ChakraProvider, extendTheme, useDisclosure } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
 import { Layout } from '../components';
+import { LayoutProvider } from '../providers';
 import '../styles/globals.css';
 
 const theme = extendTheme({
@@ -15,15 +16,14 @@ const theme = extendTheme({
   },
 });
 
-export type AppComponentProps = { navOnOpen: () => void }
-
 export default function MyApp({ Component, pageProps }: AppProps) {
-  const { isOpen: navIsOpen, onOpen: navOnOpen, onClose: navOnClose } = useDisclosure();
   return (
     <ChakraProvider theme={theme}>
-      <Layout navIsOpen={navIsOpen} navOnClose={navOnClose}>
-        <Component navOnOpen={navOnOpen} {...pageProps} />
-      </Layout>
+      <LayoutProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </LayoutProvider>
     </ChakraProvider>
   );
 }

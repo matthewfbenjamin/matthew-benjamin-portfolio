@@ -3,27 +3,28 @@ import {
   Heading,
   IconButton,
   Text,
-  UseDisclosureProps,
   VStack,
-  useMediaQuery,
+  useMediaQuery
 } from '@chakra-ui/react';
 import { MdMenu } from 'react-icons/md';
 import styled from 'styled-components';
 // eslint-disable-next-line camelcase
 import { PT_Serif } from '@next/font/google';
+import { useLayoutContext } from '../../../providers';
 
 const OffsetLetter = styled.span`
   vertical-align: ${(props) => props.offset};
 `;
 
-interface HeaderProps extends Pick<UseDisclosureProps, 'onOpen'> {
+type HeaderProps = {
   subText: string;
 }
 
 const ptSerif = PT_Serif({ subsets: ['latin'], weight: '400' });
 
 
-const Header = ({ onOpen, subText }: HeaderProps) => {
+const Header = ({ subText }: HeaderProps) => {
+  const { onOpen } = useLayoutContext();
   const [isSmallerThan767] = useMediaQuery('(max-width: 767px)');
   return (
     <Box justifyContent="center" width="100%">

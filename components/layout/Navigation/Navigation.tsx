@@ -9,8 +9,9 @@ import {
   useTheme,
 } from '@chakra-ui/react';
 
+import { useLayoutContext } from '../../../providers';
 import NavSection from './NavSection';
-import { ListItemType, NavProps } from './types';
+import { ListItemType } from './types';
 
 const TOP_LIST_ITEMS: ListItemType[] = [
   { title: 'home', destination: '/' },
@@ -37,7 +38,8 @@ const Nav = (props: BoxProps) => {
   );
 };
 
-const Navigation = ({ isOpen, onClose }: NavProps) => {
+const Navigation = () => {
+  const { isOpen, onClose } = useLayoutContext();
   const [isLargerThan768] = useMediaQuery('(min-width: 768px)');
   const { colors } = useTheme()
 

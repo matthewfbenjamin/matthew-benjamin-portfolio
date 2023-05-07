@@ -3,7 +3,6 @@ import NextLink from 'next/link';
 import { MdDownload } from 'react-icons/md';
 
 import { DirectionIcon, Header, StartIcon } from "../components";
-import { AppComponentProps } from "./_app";
 
 const NUMBER_OF_COLUMNS = 6
 const HALF_SPAN = NUMBER_OF_COLUMNS / 2
@@ -36,10 +35,10 @@ const directions: { Icon: () => JSX.Element, title: string, dates: string }[] = 
   },
 ]
 
-export default function Resume({ navOnOpen }: AppComponentProps) {
+export default function Resume() {
   return (
     <>
-      <Header onOpen={navOnOpen} subText='Download My Resume!' />
+      <Header subText='Download My Resume!' />
       <Grid templateColumns={`repeat(${NUMBER_OF_COLUMNS}, 1fr)`} px="10" rowGap="3">
         <GridItem colSpan={HALF_SPAN}>
           <Link download href="resume.pdf" display="flex" alignItems="center">
