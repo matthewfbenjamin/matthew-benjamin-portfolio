@@ -2,7 +2,7 @@ import { Flex, Grid, GridItem, Icon, Link, ResponsiveValue, Text } from "@chakra
 import NextLink from 'next/link';
 import { MdDownload } from 'react-icons/md';
 
-import { DirectionIcon, Header, StartIcon } from "../components";
+import { DirectionIcon, ExitSign, Header, StartIcon } from "../components";
 
 const NUMBER_OF_COLUMNS = 6
 const HALF_SPAN = NUMBER_OF_COLUMNS / 2
@@ -33,13 +33,18 @@ const directions: { Icon: () => JSX.Element, title: string, dates: string }[] = 
     title: 'Software Engineer II at Rakuten Rewards',
     dates: 'February 2019 – August 2019'
   },
+  {
+    Icon: ExitSign,
+    title: 'Software Engineer Contractor at Materio',
+    dates: 'January 2022 - Present (Part-time)'
+  }
 ]
 
 export default function Resume() {
   return (
     <>
       <Header subText='Download My Resume!' />
-      <Grid templateColumns={`repeat(${NUMBER_OF_COLUMNS}, 1fr)`} px="10" rowGap="3">
+      <Grid templateColumns={`repeat(${NUMBER_OF_COLUMNS}, 1fr)`} px="10" rowGap="3" mb="3">
         <GridItem colSpan={HALF_SPAN}>
           <Link download href="resume.pdf" display="flex" alignItems="center">
             <Icon as={MdDownload} mr="1" />
