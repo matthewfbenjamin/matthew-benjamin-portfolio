@@ -1,4 +1,4 @@
+export * from './SectionApplet';
 export * from './layout';
 export * from './resume';
-export * from './sectionApplet';
 
