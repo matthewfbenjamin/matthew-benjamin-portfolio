@@ -1,7 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import Head from 'next/head';
-import { SectionApplet } from '../components/SectionApplet';
-import { Header } from '../components/layout/Header';
+import { Header, SectionApplet } from '../components';
 
 export default function Home() {
   return (
@@ -12,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header subText='Explore my world with the #1 website for Matthew Benjamin!' />
-      <Box p="10">
+      <Box p="10" maxW={{ base: '100%', lg: '75%', 'xl': '60%' }} margin="auto">
         <SectionApplet
           imageUrl='http://www.thebeckoning.com/explorations/world/world%20maps/personal_travel_world_map.jpg'
           sectionTitle="Interests:"

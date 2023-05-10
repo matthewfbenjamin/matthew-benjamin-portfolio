@@ -28,15 +28,16 @@ const getArrow = (direction: DirectionProp): ReactElement<IconType> => {
   };
 }
 
-export const DirectionIcon = ({ direction }: { direction: DirectionProp }) => (
+export const DirectionIcon = ({ direction, ...rest }: { direction: DirectionProp }) => (
   <Flex
     padding={{ base: '3', md: '4' }}
-    maxW={{ base: '12', md: '16' }}
+    maxW={{ base: '14', md: '16' }}
+    {...rest}
   >
     <Flex
       background="tertiary"
-      height={{ base: '6', md: '8' }}
-      width={{ base: '6', md: '8' }}
+      height={{ base: '7', md: '8' }}
+      width={{ base: '7', md: '8' }}
       transform="rotate(45deg)"
       borderWidth={2}
       borderStyle="solid"

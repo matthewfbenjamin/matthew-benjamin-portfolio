@@ -1,3 +1,5 @@
 export * from './DirectionIcon'
 export * from './ExitSign'
-export * from './StartIcon'
+export * from './InterstateIcon'
+export * from './WrappedTextSign'
+

@@ -1,11 +1,11 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
 import { TbArrowUp } from 'react-icons/tb'
 
-export const ExitSign = () => (
-  <Flex flexDir="column" gap="0.5">
+export const ExitSign = (props) => (
+  <Flex flexDir="column" gap="0.5" {...props}>
     <Flex
       h="fit-content"
-      w="fit-content"
+      w="100%"
       paddingX="3"
       paddingY="0.5"
       background="green"
@@ -23,7 +23,7 @@ export const ExitSign = () => (
     </Flex>
     <Flex
       h="fit-content"
-      w="fit-content"
+      w="100%"
       paddingX="3"
       paddingY="0.5"
       background="green"
