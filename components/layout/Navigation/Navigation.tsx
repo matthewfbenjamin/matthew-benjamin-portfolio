@@ -5,9 +5,12 @@ import {
   DrawerCloseButton,
   DrawerContent,
   DrawerOverlay,
+  StackProps,
   useMediaQuery,
   useTheme,
+  VStack,
 } from '@chakra-ui/react';
+import Image from 'next/image'
 
 import { useLayoutContext } from '../../../providers';
 import NavSection from './NavSection';
@@ -26,15 +29,34 @@ const BOTTOM_LIST_ITEMS: ListItemType[] = [
   // { title: 'find my food', destination: '/' },
 ];
 
-const Nav = (props: BoxProps) => {
+const Nav = (props: StackProps) => {
   return (
-    <Box
-      p="4"
+    <VStack
+      align="flex-start"
+      justifyContent="space-between"
+      h={{ base: '100%', md: 'auto' }}
+      pb="2"
       {...props}
     >
+    <Box p="4">
       <NavSection title="fast track" listItems={TOP_LIST_ITEMS} />
       <NavSection title="mattquest showcase:" listItems={BOTTOM_LIST_ITEMS} />
     </Box>
+
+    <a
+      href="http://textfiles.com/underconstruction/"
+      target="_blank"
+      rel="noreferrer"
+      style={{ alignSelf: 'center' }}
+    >
+      <Image
+        src="/under_construction.gif"
+        alt="This website is under construction"
+        width={150}
+        height={100}
+      />
+    </a>
+    </VStack>
   );
 };
 
