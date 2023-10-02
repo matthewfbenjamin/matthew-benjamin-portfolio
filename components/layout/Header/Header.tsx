@@ -9,7 +9,7 @@ import {
 import { MdMenu } from 'react-icons/md';
 import styled from 'styled-components';
 // eslint-disable-next-line camelcase
-import { PT_Serif } from '@next/font/google';
+import { PT_Serif } from "next/font/google";
 import { useLayoutContext } from '../../../providers';
 
 const OffsetLetter = styled.span`
