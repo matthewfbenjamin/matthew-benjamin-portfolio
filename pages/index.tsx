@@ -12,6 +12,23 @@ export default function Home() {
       </Head>
       <Header subText='Explore my world with the #1 website for Matthew Benjamin!' />
       <Box p="10" maxW={{ base: '100%', lg: '75%', 'xl': '60%' }} margin="auto">
+      <SectionApplet
+          mb="8"
+          imageUrl='https://static.vecteezy.com/system/resources/previews/007/213/022/non_2x/graphics-design-illustration-digital-circuit-diagram-technology-for-background-wallpaper-illustration-free-vector.jpg'
+          sectionTitle="Quick Links:"
+          sectionLinks={[
+            {
+              name: 'Repos',
+              url: 'https://github.com/matthewfbenjamin', // TODO: convert to a stand alone page with GitHub API Integration
+              description: 'GitHub Projects'
+            },
+            {
+              name: 'ConnectWithMe',
+              url: 'https://linkedin.com/in/matthewfbenjamin',
+              description: 'LinkedIn Profile'
+            },
+          ]}
+        />
         <SectionApplet
           imageUrl='http://www.thebeckoning.com/explorations/world/world%20maps/personal_travel_world_map.jpg'
           sectionTitle="Interests:"

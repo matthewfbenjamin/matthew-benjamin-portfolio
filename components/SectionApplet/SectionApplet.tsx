@@ -1,11 +1,11 @@
-import { Box, Flex, Link, ListItem, Text, UnorderedList } from "@chakra-ui/react";
+import { Box, Flex, FlexProps, Link, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 
 type SectionLinks = { name: string; url: string; description: string; }
-type SectionAppletProps = { imageUrl: string; sectionTitle: string; sectionLinks: SectionLinks[] }
+interface SectionAppletProps extends FlexProps { imageUrl: string; sectionTitle: string; sectionLinks: SectionLinks[] }
 
-const SectionApplet = ({ imageUrl, sectionTitle, sectionLinks = [] }: SectionAppletProps) => {
+const SectionApplet = ({ imageUrl, sectionTitle, sectionLinks = [], ...rest }: SectionAppletProps) => {
   return (
-    <Flex flexDir="column">
+    <Flex flexDir="column" {...rest}>
       <Flex justifyContent="space-between" width="100%" alignItems="flex-end" mb="-1.5">
         <Box
           pos="relative"
@@ -28,8 +28,8 @@ const SectionApplet = ({ imageUrl, sectionTitle, sectionLinks = [] }: SectionApp
           background="blue.200"
           fontStyle="italic"
           fontWeight="extrabold"
-          px="3"
-          py="2"
+          px="2"
+          py="1"
           fontFamily="sans-serif"
           href="https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/61ddbb10b10b2958cfb75afa_k6keaSHL8_BcvdOGQBcYvpJjo67edGz4fbGwoLvP3X7e4wj-n1lXQffjq_oKH7ijOLXjEvmIgTl4DSwWbV6ZVoyMXs1wPBo8Gg-PkyHXDvNwpir8kQASNfAiOOtadwzwSruAtGWm.png"
           target="_blank"
