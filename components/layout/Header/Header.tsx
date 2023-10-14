@@ -12,7 +12,7 @@ import styled from 'styled-components';
 import { PT_Serif } from "next/font/google";
 import { useLayoutContext } from '../../../providers';
 
-const OffsetLetter = styled.span`
+const OffsetLetter = styled.span<{ offset: string}>`
   vertical-align: ${(props) => props.offset};
 `;
 
